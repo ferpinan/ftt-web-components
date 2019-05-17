@@ -6,11 +6,14 @@ export default {
     element: class extends LitElement {
 
         static get properties() {
-            return {};
+            return {
+                ocultar: {type: Boolean}
+            };
         }
 
         constructor() {
             super();
+            this.ocultar = false;
         }
 
         connectedCallback() {
@@ -21,13 +24,27 @@ export default {
             super.disconnectedCallback();
         }
 
+        ocultame(){
+            console.log(this.ocultar);
+            this.ocultar = !this.ocultar;
+        }
+
+        renderShit(){
+            return html`
+                <pre>${this.getAttribute("name")}</pre>
+                <p>Hola ${this.getAttribute("name2")} Cocotero Chuchu! </p>
+                <slot name="first"></slot>
+                <p>Medio</p>
+                <slot name="second"></slot>
+            `;
+        }
 
         render() {
             return html`
-        <pre>${JSON.stringify(this.getAttribute("name"), null, 2)}</pre>
-        <p>Hola ${this.getAttribute("name2")} Cocotero Chuchu! </p>
-        ${this.textContent}
-    `;
+                <button @click=${this.ocultame}>Ocultar</button>
+                ${this.ocultar ? "" : this.renderShit()}
+                
+            `;
         }
     }
 };

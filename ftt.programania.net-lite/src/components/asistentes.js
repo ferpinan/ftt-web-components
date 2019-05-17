@@ -106,8 +106,9 @@ export default {
         <section class="section">
             <div class="container">
                 <div id="destacados"></div>
-                <ftt-hola name=${this.asistentes} name2="Andoni">
-                    <p>hehehehe</p>
+                <ftt-hola name=${JSON.stringify(this.asistentes, null, 4)} name2="Andoni">
+                    <p slot="second">hehehehe</p>
+                    <p slot="first">hehehehe2</p>
                 </ftt-hola>
 
                 
