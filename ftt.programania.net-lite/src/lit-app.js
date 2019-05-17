@@ -8,6 +8,7 @@ import portadaComponent from './components/portada.js';
 import asistentesComponent from './components/asistentes.js';
 import horarioComponent from './components/horario.js';
 import sectionTitle from './components/ftt-section-title.js';
+import ftthola from './components/ftt-hola';
 
 [
   sectionTitle,
@@ -16,7 +17,8 @@ import sectionTitle from './components/ftt-section-title.js';
   asistentesComponent,
   horarioComponent,
   notFoundComponent,
-  fttNavBar
+  fttNavBar,
+  ftthola
 ].forEach(component => {
   customElements.define(component.name, component.element);
 });
